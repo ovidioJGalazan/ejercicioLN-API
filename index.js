@@ -5,14 +5,15 @@ const allDataAPI = require("./routes/allData");
 const cuentas = require("./routes/cuentas");
 const { logErrors, errorHandler } = require("./utils/middleware/errorHandlers");
 
-//Routes
-allDataAPI(app);
-cuentas(app);
+//https://immense-tor-32802.herokuapp.com/ 
 
 app.get("/", (request, response) => {
   response.send("<h1>Examen LN - Backend</h1>");
 });
 
+//Routes
+allDataAPI(app);
+cuentas(app);
 
 //Middleware
 app.use(logErrors);

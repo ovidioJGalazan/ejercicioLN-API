@@ -92,8 +92,8 @@ class CuentasService {
     return result;
   }
 
-  paginate ({cuentas, pag, qty}) {
-    return cuentas.slice((pag-1)*qty, (pag*qty));
+  paginate ({cuentas, page, qty}) {
+    return cuentas.slice((page-1)*qty, (page*qty));
   }
 
 }

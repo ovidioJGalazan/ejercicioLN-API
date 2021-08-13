@@ -733,7 +733,7 @@ const mockData = {
           "type_id": "17",
           "type": "Productos Club"
         }
-      ],
+		  ],
       "branches": [
         {
           "id": "e8c4ba38-0e9f-e711-812e-0ab6811d4821",
@@ -2090,7 +2090,7 @@ const mockData = {
           "type_id": "17",
           "type": "Productos Club"
         }
-      ],
+		  ],
       "branches": [
         {
           "id": "d55d655e-5eeb-e911-8144-0ab6811d4821",
@@ -3048,7 +3048,7 @@ const mockData = {
           "type_id": "17",
           "type": "Productos Club"
         }
-      ],
+		  ],
       "branches": [
         {
           "id": "4cb07f46-583a-e711-812b-0ab6811d4821",
@@ -4102,7 +4102,7 @@ const mockData = {
           "type_id": "17",
           "type": "Productos Club"
         }
-      ],
+		  ],
       "branches": [
         {
           "id": "4d63908c-44da-e911-8144-0ab6811d4821",

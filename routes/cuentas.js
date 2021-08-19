@@ -8,7 +8,7 @@ const cuentas = (app) => {
   router.use(express.json());
     
   router.get("", async (req, res, next) => {
-    const {filterBy, filterValue, orderBy, page, qty} = req.body;
+    const {filterBy, filterValue, orderBy, page, qty} = req.query;
     try{
       const cuentasService = new CuentasService();
 

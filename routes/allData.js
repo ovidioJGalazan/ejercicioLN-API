@@ -4,7 +4,7 @@ const { mockData } = require("../utils/mocks/data");
 const allDataAPI = (app) => {
 
   const router = express.Router();
-  app.use("/api/cuentas", router);
+  app.use("/api", router);
     
   router.get("/", async (req, res, next) => {
     try{

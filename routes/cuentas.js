@@ -8,17 +8,17 @@ const cuentas = (app) => {
   router.use(express.json());
     
   router.get("", async (req, res, next) => {
-    const {filterBy, filterValue, orderBy, page, qty} = req.query;
+    const {filterBy, filterValue, orderBy, page, qty, cleanType} = req.query;
     try{
       const cuentasService = new CuentasService();
 
       let results = await cuentasService.filter({filterBy, filterValue});
       results = cuentasService.order({cuentas: results, orderBy});
       results = cuentasService.paginate({cuentas: results, page, qty});
-
+      results = cuentasService.cleanData({cuentas: results, cleanType});
       res.status(200).json({
         data: results,
-        message: `Se devuelven ${qty} elementos de la ${page} página filtrados por ${filterBy}=${filterValue} ordenados ${orderBy}.`
+        message: `Se devuelven ${qty} elementos de la ${page} página filtrados por ${filterBy}=${filterValue} ordenados ${orderBy} para cards ${cleanType}.`
       }
       );
     }catch(err){

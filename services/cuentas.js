@@ -96,6 +96,66 @@ class CuentasService {
     return cuentas.slice((page-1)*qty, (page*qty));
   }
 
+  cleanData ({cuentas, cleanType}) {
+    let cleanedData = cuentas;
+
+    const getBenefits = (benefits) => {
+
+      const blackBenefits = benefits.map( (benefit) => {
+        if (benefit.program_name.includes("Club La Nación Black") )
+          return(benefit.value);
+      });
+
+      const highestBlackBenefit = Math.max.apply(null,blackBenefits);
+
+      const premiumBenefits = benefits.map( (benefit) => {
+        if (benefit.program_name.includes("Club La Nación Premium") )
+          return(benefit.value);
+      });
+
+      const highestPremiumBenefit = Math.max.apply(null,premiumBenefits);
+
+      const classicBenefits = benefits.map( (benefit) => {
+        if (benefit.program_name.includes("Club La Nación Classic") )
+          return(benefit.value);
+      });
+
+      const highestClassicBenefit = Math.max.apply(null,classicBenefits);
+
+      return ({
+        black: highestBlackBenefit,
+        premium: highestPremiumBenefit,
+        classic: highestClassicBenefit,
+      });
+    };
+
+    switch(cleanType){
+    case "beneficio":
+      cleanedData = cleanedData.map( (cuenta) => {
+        return ({
+          name: cuenta.name,
+          image: cuenta.images[0].url,
+          nearestLocation: cuenta.nearestLocation,
+          crmid: cuenta.crmid,
+          benefits: getBenefits(cuenta.benefits),
+        });
+      });
+      break;
+    case "codigo":
+      cleanedData = cleanedData.map( (cuenta) => {
+        return({
+          name: cuenta.name,
+          image: cuenta.images[0].url,
+          crmid: cuenta.crmid
+        });
+      });
+      break;
+    default: 
+      break;
+    }
+
+    return cleanedData;
+  }
 }
 
 module.exports = CuentasService;

@@ -7,4 +7,4 @@
 ### npm run dev
 
 ## Hosted in Heroku
-Link: [App]https://immense-tor-32802.herokuapp.com/ 
+Link: [https://immense-tor-32802.herokuapp.com/](App)
